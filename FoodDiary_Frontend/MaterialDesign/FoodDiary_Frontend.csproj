@@ -81,14 +81,11 @@
     <Compile Include="DesktopUI\Dialogs\CreateCategoryDialog.xaml.cs">
       <DependentUpon>CreateCategoryDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DesktopUI\Dialogs\EditDialog.xaml.cs">
-      <DependentUpon>EditDialog.xaml</DependentUpon>
-    </Compile>
     <Compile Include="DesktopUI\Dialogs\ErrorDialog.xaml.cs">
       <DependentUpon>ErrorDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DesktopUI\Dialogs\Page1.xaml.cs">
-      <DependentUpon>Page1.xaml</DependentUpon>
+    <Compile Include="DesktopUI\Dialogs\EditDialog.xaml.cs">
+      <DependentUpon>EditDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="DesktopUI\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
@@ -122,17 +119,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="DesktopUI\Dialogs\ErrorDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="DesktopUI\Dialogs\EditDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DesktopUI\Dialogs\ErrorDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DesktopUI\Dialogs\Page1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DesktopUI\LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

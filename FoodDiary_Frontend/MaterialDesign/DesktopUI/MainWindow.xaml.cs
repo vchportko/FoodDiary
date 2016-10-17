@@ -17,13 +17,14 @@ using FoodDiary_Backend.DataAccess;
 
 namespace MaterialDesign
 {
+    
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        private DbContext _context;
-        private int _userId;
+        public static DbContext _context;
+        public static int _userId;
 
         public MainWindow(DbContext context, int userId)
         {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -18,7 +19,6 @@ using FoodDiary_Backend.DataAccess;
 using FoodDiary_Backend.Repositories;
 using FoodDiary_Backend.Services;
 using MaterialDesign;
-using MaterialDesign.DesktopUI.Dialogs;
 using MaterialDesignThemes.Wpf;
 using static MaterialDesignThemes.Wpf.DialogHost;
 
@@ -48,10 +48,8 @@ namespace FoodDiary
         {
             if (txbLogin.Text == "" || txbPass.Password == "")
             {
-                ErrorDialog errorDialog=new ErrorDialog("Input all fields");
-#pragma warning disable 4014
-                DialogHost.Show(errorDialog, "RootDialog");
-#pragma warning restore 4014
+                ErrorDialog errorDialog=new ErrorDialog("Error!!! Fill all the fields!!!");
+                errorDialog.Show();
             }
             else
             {
@@ -60,10 +58,23 @@ namespace FoodDiary
                 UserRepository userRepository=new UserRepository(context);
                 string hasedPassword = HashedPassword.GetMd5Hash(txbPass.Password);
                 int userId = userRepository.GetUserByLogin(txbLogin.Text, hasedPassword);
-                MainWindow userMainWindow=new MainWindow(context,userId);
-                userMainWindow.Show();
-                Hide();
+                if (userId > 0)
+                {
+                    MainWindow userMainWindow = new MainWindow(context, userId);
+                    userMainWindow.Show();
+                    Hide();
+                }
+                else
+                {
+                    ErrorDialog errorDialog = new ErrorDialog("Error!!! Incorrect data inputed!!!");
+                    errorDialog.Show();
+                }
+               
             }
+        }
+        private void ClosingEventHandler(object sender, MaterialDesignThemes.Wpf.DialogClosingEventArgs eventArgs)
+        {
+            Console.WriteLine("You can intercept the closing event, and cancel here.");
         }
     }
 }

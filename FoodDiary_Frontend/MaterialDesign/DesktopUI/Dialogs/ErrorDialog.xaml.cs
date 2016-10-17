@@ -10,20 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using FoodDiary_Backend.DataAccess;
 
-namespace MaterialDesign.DesktopUI.Dialogs
+namespace MaterialDesign
 {
     /// <summary>
-    /// Логика взаимодействия для ErrorDialog.xaml
+    /// Interaction logic for SampleDialog.xaml
     /// </summary>
-    public partial class ErrorDialog : UserControl
+    public partial class ErrorDialog:Window
     {
         public ErrorDialog(string message)
         {
             InitializeComponent();
-            ErrorMessage.Text = message;
+            txbErrorMessage.Text = message;
         }
+
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        
     }
 }

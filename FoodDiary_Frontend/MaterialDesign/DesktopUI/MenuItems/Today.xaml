@@ -20,9 +20,11 @@
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
+            <RowDefinition Height="6*" />
+            <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Margin="8" Orientation="Vertical" Panel.ZIndex="0">
+        <ScrollViewer>
+        <StackPanel Grid.Row="0" Margin="8" CanVerticallyScroll="True" Orientation="Vertical" Panel.ZIndex="0">
             <materialDesign:Card Background="#FFFFFF" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
                   Padding="0"
                   Width="Auto">
@@ -64,6 +66,13 @@
                 </Grid>
             </materialDesign:Card>
         </StackPanel>
-        <DockPanel Grid.Row="0"/>
+        </ScrollViewer>
+        <DockPanel Grid.Row="1">
+            <Button x:Name="bAdd" DockPanel.Dock="Bottom" Style="{StaticResource MaterialDesignFloatingActionButton}" Panel.ZIndex="100"
+                                 HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                                 Click="AddDialog">
+                <materialDesign:PackIcon Kind="Plus" Height="24" Width="24" />
+            </Button>
+        </DockPanel>
     </Grid>
 </UserControl>

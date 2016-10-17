@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using FoodDiary_Backend.DataAccess;
 
 namespace MaterialDesign
 {
@@ -21,9 +22,13 @@ namespace MaterialDesign
     /// </summary>
     public partial class Today : UserControl
     {
+        DbContext _dbContext;
+        int _userId;
         public Today()
         {
             InitializeComponent();
+            _dbContext = MainWindow._context;
+            _userId = MainWindow._userId;
         }
 
         
