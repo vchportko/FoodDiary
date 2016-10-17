@@ -87,6 +87,9 @@
     <Compile Include="DesktopUI\Dialogs\EditDialog.xaml.cs">
       <DependentUpon>EditDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DesktopUI\DinamicItems\ProductCard.xaml.cs">
+      <DependentUpon>ProductCard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DesktopUI\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -126,6 +129,10 @@
     <Page Include="DesktopUI\Dialogs\EditDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DesktopUI\DinamicItems\ProductCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DesktopUI\LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -207,6 +214,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icons\header.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\1476761023_Food.ico" />
+    <Resource Include="Icons\1476761070_cog.ico" />
+    <Resource Include="Icons\1476761157_statistic.ico" />
+    <Resource Include="Icons\1476761161_vector_65_03.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\1476761420_SignOut.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -28,9 +28,9 @@ namespace MaterialDesign
 
         public MainWindow(DbContext context, int userId)
         {
-            InitializeComponent();
             _context = context;
             _userId = userId;
+            InitializeComponent();
         }
 
         private void UIElement_OnPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)

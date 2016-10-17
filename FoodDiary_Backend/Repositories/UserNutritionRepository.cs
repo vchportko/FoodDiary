@@ -40,10 +40,10 @@ namespace FoodDiary_Backend.Repositories
                             CategoryName = record.GetString(0),
                             SubcategoryName = record.GetString(1),
                             Name = record.GetString(2),
-                            CaloriesIn100G = record.GetFloat(3),
-                            FatIn100G = record.GetFloat(4),
-                            ProteinIn100G = record.GetFloat(5),
-                            CarbohydratesIn100G = record.GetFloat(6)
+                            CaloriesIn100G = Math.Round(float.Parse(record.GetDouble(3).ToString()),2),
+                            FatIn100G = Math.Round(float.Parse(record.GetDouble(4).ToString()),2),
+                            ProteinIn100G = Math.Round(float.Parse(record.GetDouble(5).ToString()),2),
+                            CarbohydratesIn100G = Math.Round(float.Parse(record.GetDouble(6).ToString()),2)
                         };
 
                         listOfUserNutrition.Add(new UserNutrition()

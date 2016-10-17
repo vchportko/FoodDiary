@@ -11,6 +11,7 @@ namespace MaterialDesign
     {
         private string _name;
         private object _content;
+        private string _source;
 
         public string Name
         {
@@ -27,6 +28,15 @@ namespace MaterialDesign
             set
             {
                 this.MutateVerbose(ref _content, value, RaisePropertyChanged());
+            }
+        }
+
+        public string Source
+        {
+            get { return _source; }
+            set
+            {
+                this.MutateVerbose(ref _source, value, RaisePropertyChanged());
             }
         }
 

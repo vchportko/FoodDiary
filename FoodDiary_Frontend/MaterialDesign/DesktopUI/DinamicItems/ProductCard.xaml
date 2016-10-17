@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="MaterialDesign.DesktopUI.DinamicItems.ProductCard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MaterialDesign.DesktopUI.DinamicItems"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        d:DesignHeight="300" d:DesignWidth="300" >
+    <Grid>
+        <materialDesign:Card Background="#FFFFFF" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Margin="0,0,0,10" Width="Auto">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="txbProductName" Grid.Row="1" Foreground="#FFE91E63" Margin="16 16 16 4" Style="{StaticResource MaterialDesignHeadlineTextBlock}"></TextBlock>
+                <TextBlock x:Name="txbCalories" Grid.Row="3" Foreground="#444444" Margin="16 0 16 4" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}">Calories quantity in 100g -> </TextBlock>
+                <StackPanel Grid.Row="2" Orientation="Horizontal">
+                    <TextBlock  FontWeight="Bold" Foreground="#444444" Margin="16 0 0 4" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}">Number eaten -></TextBlock>
+                    <TextBlock x:Name="txbNumber"  Foreground="#444444" Margin="10 0 16 4" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}"></TextBlock>
+                </StackPanel>
+                <TextBlock x:Name="txbFats" Grid.Row="4" Foreground="#444444" Margin="16 0 16 4" FontSize="14" Style="{StaticResource MaterialDesignHeadlineTextBlock}">Fats -> </TextBlock>
+                <TextBlock x:Name="txbProteins" Grid.Row="5" Foreground="#444444" Margin="16 0 16 4" FontSize="14" Style="{StaticResource MaterialDesignHeadlineTextBlock}">Proteins -> </TextBlock>
+                <TextBlock x:Name="txbCarbohudrates" Grid.Row="6" Foreground="#444444" Margin="16 0 16 4" FontSize="14" Style="{StaticResource MaterialDesignHeadlineTextBlock}">Carbohydrates -> </TextBlock>
+                <Separator Grid.Row="7" Background="#444444"/>
+                <TextBlock x:Name="txbCategory" Grid.Row="8" Foreground="#444444" Margin="16 0 16 8" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignBody1TextBlock}">Category -> </TextBlock>
+                <TextBlock x:Name="txbSubcat" Grid.Row="9" Foreground="#444444" Margin="16 0 16 8" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignBody1TextBlock}">Subcategory -> </TextBlock>
+                <StackPanel Grid.Row="10" Orientation="Horizontal" Margin="16 0 16 8" HorizontalAlignment="Right">
+                    <Button x:Name="btnEdit" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignToolForegroundButton}" Width="30" Padding="2 0 2 0"
+                            materialDesign:RippleAssist.IsCentered="True" Margin="0 0 16 0" Foreground="#444444" Click="BtnEdit_OnClick">
+                        <materialDesign:PackIcon  Kind="Pencil"/>
+                    </Button>
+                    <Button x:Name="btnDelete" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignToolForegroundButton}" Width="30" Padding="2 0 2 0"
+                            materialDesign:RippleAssist.IsCentered="True"  Foreground="#444444" Click="BtnDelete_OnClick">
+                        <materialDesign:PackIcon Kind="Delete" />
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </materialDesign:Card>
+    </Grid>
+</UserControl>

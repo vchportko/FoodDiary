@@ -7,7 +7,8 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Icon="../Icons/main1.ico"
-        Title="FoodDiary" Height="280" Width="400" WindowStyle="None" ResizeMode="NoResize" Background="#FFE91E63" AllowsTransparency="True" WindowStartupLocation="CenterScreen">
+        Title="FoodDiary" Height="280" Width="400" WindowStyle="None" ResizeMode="NoResize" Background="Transparent" AllowsTransparency="True" WindowStartupLocation="CenterScreen">
+    <Border Background="#FFE91E63" CornerRadius="10,10,10,10" Padding="6" BorderBrush="#FF672699" BorderThickness="3">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
@@ -20,4 +21,5 @@
             <Button x:Name="Submit" Margin="135,19" Click="btnSubmit_OnClick" FontSize="18" Content="Sign in"/>
         </StackPanel>
     </Grid>
+    </Border>
 </Window>

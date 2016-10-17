@@ -11,12 +11,12 @@
         <EventTrigger RoutedEvent="Window.Loaded">
             <BeginStoryboard>
                 <Storyboard>
-                    <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:1" FillBehavior="HoldEnd" />
+                    <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.5" FillBehavior="HoldEnd" />
                 </Storyboard>
             </BeginStoryboard>
         </EventTrigger>
     </Window.Triggers>
-    <Border Background="#7F111111" CornerRadius="10,10,10,10" Padding="6">
+    <Border Background="#CC111111" CornerRadius="10,10,10,10" Padding="6">
     <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

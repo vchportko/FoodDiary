@@ -4,13 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaterialDesign"
-        mc:Ignorable="d" Height="400" Width="600" ResizeMode="NoResize" 
+        mc:Ignorable="d"
+        Title="FoodDiary" Icon="../Icons/main1.ico" Height="550" Width="520" WindowStartupLocation="CenterScreen" ResizeMode="CanResize"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto" WindowStartupLocation="CenterScreen"
-        >
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -21,9 +21,9 @@
 
             <DataTemplate DataType="{x:Type system:DateTime}">
                 <StackPanel Margin="16">
-                    <TextBlock></TextBlock>
+                    <TextBlock>England win the World Cup:</TextBlock>
                     <TextBlock Margin="0 8 0 0" Text="{Binding }" />
-                    <TextBlock Margin="0 8 0 0" ></TextBlock>
+                    <TextBlock Margin="0 8 0 0" >You will never see that again.</TextBlock>
                     <Button  Margin="0 8 0 0" IsDefault="True" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Style="{DynamicResource MaterialDesignFlatButton}">AWESOME</Button>
                 </StackPanel>
             </DataTemplate>
@@ -42,30 +42,35 @@
                              PreviewMouseLeftButtonUp="UIElement_OnPreviewMouseLeftButtonUp">
                         <ListBox.ItemTemplate>
                             <DataTemplate DataType="local:DemoItem">
-                                <TextBlock Text="{Binding Name}" Margin="32 0 32 0" FontSize="20" />
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="20" Height="20" Source="{Binding Source}"></Image>
+                                    <TextBlock Text="{Binding Name}" Margin="8 0 0 0" FontSize="20" />
+                                </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
-                        
-                        <local:DemoItem Name="Today">
+                        <local:DemoItem Name="Nutrition" Source="../Icons/1476761023_Food.ico" >
                             <local:DemoItem.Content>
-                                <local:Today Loaded="Today_Loaded" />
+                                <StackPanel Orientation="Horizontal">
+                                    <local:Today />
+                                </StackPanel>
                             </local:DemoItem.Content>
                         </local:DemoItem>
-                        <local:DemoItem Name="Calendar">
-                            <local:DemoItem.Content>
-                                <local:Calendar />
-                            </local:DemoItem.Content>
-                        </local:DemoItem>
-                        <local:DemoItem Name="Statistics">
+                        <local:DemoItem Name="Statistics" Source="../Icons/1476761157_statistic.ico">
                             <local:DemoItem.Content>
                                 <local:Statistics />
                             </local:DemoItem.Content>
                         </local:DemoItem>
-                        <local:DemoItem Name="Settings">
+                        <local:DemoItem Name="Settings" Source="../Icons/1476761070_cog.ico">
                             <local:DemoItem.Content>
                                 <local:Settings />
                             </local:DemoItem.Content>
                         </local:DemoItem>
+                        <local:DemoItem Name="Sign out" Source="../Icons/1476761420_SignOut.ico">
+                            <local:DemoItem.Content>
+                                <local:Settings />
+                            </local:DemoItem.Content>
+                        </local:DemoItem>
+
                     </ListBox>
                 </DockPanel>
             </materialDesign:DrawerHost.LeftDrawerContent>
@@ -75,6 +80,16 @@
                     <DockPanel>
                         <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" IsChecked="False"
                                       x:Name="MenuToggleButton"/>
+                        <!--
+                        
+                        #9C27B0
+                        
+                        <materialDesign:PopupBox DockPanel.Dock="Right" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
+                            <StackPanel>
+                                
+                                <Button Content="Settings" IsEnabled="False" />
+                            </StackPanel>
+                        </materialDesign:PopupBox>-->
                         <TextBlock Margin="16, 0, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22">Food Diary</TextBlock>
                     </DockPanel>
                 </materialDesign:ColorZone>

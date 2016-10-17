@@ -14,6 +14,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using FoodDiary_Backend.DataAccess;
+using FoodDiary_Backend.Models;
+using FoodDiary_Backend.Repositories;
+using MaterialDesign.DesktopUI.DinamicItems;
 
 namespace MaterialDesign
 {
@@ -22,15 +25,39 @@ namespace MaterialDesign
     /// </summary>
     public partial class Today : UserControl
     {
-        DbContext _dbContext;
-        int _userId;
+        private DbContext _dbContext;
+        private int _userId;
+        private UserNutritionRepository _currentUserNutritionRepository;
+        private IList<UserNutrition> _currentUserNutrition;
+        private DateTime _dateToLoad;
+
         public Today()
         {
             InitializeComponent();
             _dbContext = MainWindow._context;
             _userId = MainWindow._userId;
+            _currentUserNutritionRepository=new UserNutritionRepository(_dbContext);
+            _dateToLoad=DateTime.Now;
+            LoadCards();
+            txbCurDate.Content = _dateToLoad.ToLongDateString();
         }
 
+        private void LoadCards()
+        {
+            //date to find products
+            _currentUserNutrition = _currentUserNutritionRepository.GetAllUserProductsByDate(_userId, _dateToLoad);
+            if (_currentUserNutrition.Count() > 0)
+            {
+                foreach (var i in _currentUserNutrition)
+                {
+                    stpCards.Children.Add(new ProductCard(i.Product, i.NumberOfGrams));
+                }
+            }
+            else
+            {
+                ErrorDialog messageToAddProd = new ErrorDialog("There are no added products in this day.");
+            }
+        }
         
         private void AddDialog(object sender, RoutedEventArgs e)
         {
@@ -56,6 +83,17 @@ namespace MaterialDesign
         private void ClosingEventHandler(object sender, DialogClosingEventArgs eventArgs)
         {
             Console.WriteLine("You can intercept the closing event, and cancel here.");
+        }
+
+        private void PickDate(object sender, RoutedEventArgs e)
+        {
+            dtCalendar.IsDropDownOpen = true;
+        }
+
+        private void DateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var date = dtCalendar.SelectedDate.Value;
+            Console.WriteLine(date);
         }
 
     }
