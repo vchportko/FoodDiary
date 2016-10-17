@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="MaterialDesign.Calendar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MaterialDesign"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="8" Orientation="Vertical" Panel.ZIndex="0" CanVerticallyScroll="True">
+            <materialDesign:Card Background="#FFFFFF" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+                  Padding="0"
+                  Width="Auto">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="txbProductName" Grid.Row="0" Foreground="#FFE91E63" Margin="16 16 16 4" Style="{StaticResource MaterialDesignHeadlineTextBlock}"></TextBlock>
+                    <TextBlock Grid.Row="2" Foreground="#444444" Margin="16 0 16 4" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}">Calories quantity in 100g:</TextBlock>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <TextBlock  FontWeight="Bold" Foreground="#444444" Margin="16 0 0 4" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}">Number:</TextBlock>
+                        <TextBlock x:Name="txbNumber"  Foreground="#444444" Margin="10 0 16 4" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}"></TextBlock>
+                    </StackPanel>
+                    <TextBlock x:Name="txbFats" Grid.Row="3" Foreground="#444444" Margin="16 0 16 4" FontSize="14" Style="{StaticResource MaterialDesignHeadlineTextBlock}">Fats:</TextBlock>
+                    <TextBlock x:Name="txbProteins" Grid.Row="4" Foreground="#444444" Margin="16 0 16 4" FontSize="14" Style="{StaticResource MaterialDesignHeadlineTextBlock}">Proteins:</TextBlock>
+                    <TextBlock x:Name="txbCarbohudrates" Grid.Row="5" Foreground="#444444" Margin="16 0 16 4" FontSize="14" Style="{StaticResource MaterialDesignHeadlineTextBlock}">Carbohydrates:</TextBlock>
+                    <Separator Grid.Row="6" Background="#444444"/>
+                    <TextBlock x:Name="txbCategory" Grid.Row="7" Foreground="#444444" Margin="16 0 16 8" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignBody1TextBlock}">Category:</TextBlock>
+                    <TextBlock x:Name="txbSubcat" Grid.Row="8" Foreground="#444444" Margin="16 0 16 8" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignBody1TextBlock}">Subcategory:</TextBlock>
+                    <StackPanel Grid.Row="9" Orientation="Horizontal" Margin="16 0 16 8" HorizontalAlignment="Right">
+                        <Button HorizontalAlignment="Right" Style="{StaticResource MaterialDesignToolForegroundButton}" Width="30" Padding="2 0 2 0"
+                            materialDesign:RippleAssist.IsCentered="True" Margin="0 0 16 0" Foreground="#444444" Click="EditDialog">
+                            <materialDesign:PackIcon Kind="Pencil"/>
+                        </Button>
+                        <Button HorizontalAlignment="Right" Style="{StaticResource MaterialDesignToolForegroundButton}" Width="30" Padding="2 0 2 0"
+                            materialDesign:RippleAssist.IsCentered="True"  Foreground="#444444" Click="Delete">
+                            <materialDesign:PackIcon Kind="Delete" />
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            
+
+        </StackPanel>
+        </ScrollViewer>
+        <DatePicker x:Name="dtCalendar" SelectedDateChanged="DateChanged" Width="100" Visibility="Hidden" HorizontalAlignment="Left" Margin="0 16 0 0" materialDesign:HintAssist.Hint="Pick Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+        <DockPanel Grid.Row="1">
+            <Button x:Name="bPick" DockPanel.Dock="Bottom" Style="{StaticResource MaterialDesignFloatingActionButton}" Panel.ZIndex="100"
+                                 HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="PickDate">
+                <materialDesign:PackIcon Kind="CalendarToday" Height="24" Width="24" />
+            </Button>
+        </DockPanel>
+    </Grid>
+</UserControl>
