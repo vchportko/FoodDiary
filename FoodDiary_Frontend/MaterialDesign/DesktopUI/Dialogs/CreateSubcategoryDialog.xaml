@@ -16,11 +16,9 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <TextBlock FontSize="22">Create subcategory:</TextBlock>
-        <ComboBox x:Name="cbCategory" wpf:HintAssist.Hint="Category"                 
+        <ComboBox x:Name="cbCategory" SelectionChanged="CbCategory_OnSelectionChanged" wpf:HintAssist.Hint="Category"                 
                  Margin="0 6 0 0"
                  FontSize="16" Grid.Row="1">
-            <ComboBoxItem>Category 1</ComboBoxItem>
-            <ComboBoxItem>Category 2</ComboBoxItem>
         </ComboBox>
         <TextBox x:Name="tbSubcategory" wpf:HintAssist.Hint="Subcategory name" Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
                  Margin="0 8 0 0"

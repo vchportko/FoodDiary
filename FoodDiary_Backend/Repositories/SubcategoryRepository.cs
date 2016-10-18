@@ -54,12 +54,7 @@ namespace FoodDiary_Backend.Repositories
 
                 using (var record = command.ExecuteReader())
                 {
-                    int numOfInsertedRanges = 0;
-                    while (record.Read())
-                    {
-                        numOfInsertedRanges = record.GetInt32(0);
-                    }
-
+                    int numOfInsertedRanges = record.RecordsAffected;
                     if (numOfInsertedRanges > 0)
                     {
                         return true;
