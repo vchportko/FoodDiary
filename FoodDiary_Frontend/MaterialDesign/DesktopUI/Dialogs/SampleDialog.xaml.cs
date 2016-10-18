@@ -67,12 +67,17 @@ namespace MaterialDesign
                     }
                     else
                     {
-                        ErrorDialog errorCommiting = new ErrorDialog("Data was not commited.");
+                        ErrorDialog errorCommiting = new ErrorDialog("Error!!! Data was not commited.");
                         errorCommiting.Show();
                     }
-                    
+                }
+                else
+                {
+                    ErrorDialog errorCommiting = new ErrorDialog("Error!!! Data was not commited. Not all fields were filled.");
+                    errorCommiting.Show();
                 }
             }
+
         }
 
         private void setSubcategoryItems(string categoryName)

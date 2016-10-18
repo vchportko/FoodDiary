@@ -21,11 +21,17 @@
                 </Grid.RowDefinitions>
                     <TextBlock Grid.Row="0" Foreground="#444444" FontSize="22" Margin="16 16 16 16" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignBody1TextBlock}">Create new category</TextBlock>
                 <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="16 16 16 16" HorizontalAlignment="Right">
-                    <Button HorizontalAlignment="Right" Style="{StaticResource MaterialDesignToolForegroundButton}" Width="30" Padding="2 0 2 0"
-                            materialDesign:RippleAssist.IsCentered="True" Click="CreateCategory">
-                        <materialDesign:PackIcon Kind="Plus" Foreground="#444444"/>
-                    </Button>
-                </StackPanel>
+                        <Button HorizontalAlignment="Right" Style="{StaticResource MaterialDesignToolForegroundButton}" Width="40" Height="40" Padding="2 0 2 0"
+                            materialDesign:RippleAssist.IsCentered="True"  Click="CreateCategory">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border CornerRadius="30" Background="#FF9C27B0">
+                                        <TextBlock Text="+" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"></TextBlock>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </StackPanel>
             </Grid>
         </materialDesign:Card>
 
@@ -39,9 +45,15 @@
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Row="0" Foreground="#444444" FontSize="22" Margin="16 16 16 16" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignBody1TextBlock}">Create new subcategory</TextBlock>
                     <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="16 16 16 16" HorizontalAlignment="Right">
-                        <Button HorizontalAlignment="Right" Style="{StaticResource MaterialDesignToolForegroundButton}" Width="30" Padding="2 0 2 0"
+                        <Button HorizontalAlignment="Right" Style="{StaticResource MaterialDesignToolForegroundButton}" Width="40" Height="40" Padding="2 0 2 0"
                             materialDesign:RippleAssist.IsCentered="True"  Click="CreateSubcategory">
-                            <materialDesign:PackIcon Kind="Plus" Foreground="#444444"/>
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border CornerRadius="30" Background="#FF9C27B0">
+                                        <TextBlock Text="+" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"></TextBlock>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
                         </Button>
                     </StackPanel>
                 </Grid>
@@ -57,9 +69,15 @@
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Row="0" Foreground="#444444" FontSize="22" Margin="16 16 16 16" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignBody1TextBlock}">Create new food</TextBlock>
                     <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="16 16 16 16" HorizontalAlignment="Right">
-                        <Button HorizontalAlignment="Right" Style="{StaticResource MaterialDesignToolForegroundButton}" Width="30" Padding="2 0 2 0"
+                        <Button HorizontalAlignment="Right" Style="{StaticResource MaterialDesignToolForegroundButton}" Width="40" Height="40" Padding="2 0 2 0"
                             materialDesign:RippleAssist.IsCentered="True"  Click="CreateFood">
-                            <materialDesign:PackIcon Kind="Plus" Foreground="#444444"/>
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border CornerRadius="30" Background="#FF9C27B0">
+                                        <TextBlock Text="+" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"></TextBlock>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
                         </Button>
                     </StackPanel>
                 </Grid>

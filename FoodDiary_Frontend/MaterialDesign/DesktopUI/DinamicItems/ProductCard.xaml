@@ -26,8 +26,10 @@
                 <TextBlock x:Name="txbProductName" Grid.Row="1" Foreground="#FFE91E63" Margin="16 16 16 4" Style="{StaticResource MaterialDesignHeadlineTextBlock}"></TextBlock>
                 <TextBlock x:Name="txbCalories" Grid.Row="3" Foreground="#444444" Margin="16 0 16 4" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}">Calories quantity in 100g -> </TextBlock>
                 <StackPanel Grid.Row="2" Orientation="Horizontal">
-                    <TextBlock  FontWeight="Bold" Foreground="#444444" Margin="16 0 0 4" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}">Number eaten -></TextBlock>
+                    <TextBlock  FontWeight="Bold" Foreground="#444444" Margin="16 0 0 4" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}">Number -></TextBlock>
                     <TextBlock x:Name="txbNumber"  Foreground="#444444" Margin="10 0 16 4" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}"></TextBlock>
+                    <TextBlock  FontWeight="Bold" Foreground="#444444" Margin="16 0 0 4" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}">Calories -></TextBlock>
+                    <TextBlock x:Name="txbNumberCal"  Foreground="#444444" Margin="10 0 16 4" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}"></TextBlock>
                 </StackPanel>
                 <TextBlock x:Name="txbFats" Grid.Row="4" Foreground="#444444" Margin="16 0 16 4" FontSize="14" Style="{StaticResource MaterialDesignHeadlineTextBlock}">Fats -> </TextBlock>
                 <TextBlock x:Name="txbProteins" Grid.Row="5" Foreground="#444444" Margin="16 0 16 4" FontSize="14" Style="{StaticResource MaterialDesignHeadlineTextBlock}">Proteins -> </TextBlock>

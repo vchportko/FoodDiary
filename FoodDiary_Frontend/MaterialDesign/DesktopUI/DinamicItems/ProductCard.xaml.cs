@@ -47,6 +47,7 @@ namespace MaterialDesign.DesktopUI.DinamicItems
             txbSubcat.Text += " " + _product.SubcategoryName;
             txbCarbohudrates.Text += " " + _product.CarbohydratesIn100G;
             txbNumber.Text = " " + _numberOfGrams.ToString();
+            txbNumberCal.Text = Math.Round(_product.CaloriesIn100G/100*_numberOfGrams, 2).ToString();
         }
 
         private void BtnDelete_OnClick(object sender, RoutedEventArgs e)

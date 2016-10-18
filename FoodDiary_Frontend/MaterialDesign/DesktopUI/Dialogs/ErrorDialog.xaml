@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MaterialDesign"
         xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
-        mc:Ignorable="d" Background="Transparent" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight" Height="Auto" Width="Auto" AllowsTransparency="True" ResizeMode="NoResize" WindowStyle="None">
+        mc:Ignorable="d" Background="Transparent"  WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight" Height="Auto" Width="Auto" AllowsTransparency="True" ResizeMode="NoResize" WindowStyle="None">
     <Window.Triggers>
         <EventTrigger RoutedEvent="Window.Loaded">
             <BeginStoryboard>

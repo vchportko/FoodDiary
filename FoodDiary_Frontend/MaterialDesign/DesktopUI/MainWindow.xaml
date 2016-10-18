@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaterialDesign"
         mc:Ignorable="d"
-        Title="FoodDiary" Icon="../Icons/main1.ico" Height="650" Width="520" WindowStartupLocation="CenterOwner" ResizeMode="NoResize"
+        Title="FoodDiary" Icon="../Icons/main1.ico" Height="650" Width="520" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -65,11 +65,7 @@
                                 <local:Settings />
                             </local:DemoItem.Content>
                         </local:DemoItem>
-                        <local:DemoItem Name="Sign out" Source="../Icons/1476761420_SignOut.ico">
-                            <local:DemoItem.Content>
-                                <local:Settings />
-                            </local:DemoItem.Content>
-                        </local:DemoItem>
+                        
 
                     </ListBox>
                 </DockPanel>
