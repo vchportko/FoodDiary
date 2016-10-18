@@ -25,64 +25,52 @@ namespace MaterialDesign
     /// </summary>
     public partial class Today : UserControl
     {
-        private DbContext _dbContext;
-        private int _userId;
-        private UserNutritionRepository _currentUserNutritionRepository;
         private IList<UserNutrition> _currentUserNutrition;
-        private DateTime _dateToLoad;
+        private static DateTime _dateToLoad;
 
         public Today()
         {
             InitializeComponent();
-            _dbContext = MainWindow._context;
-            _userId = MainWindow._userId;
-            _currentUserNutritionRepository=new UserNutritionRepository(_dbContext);
-            _dateToLoad=DateTime.Now;
+
+            _dateToLoad =DateTime.Now;
             LoadCards();
-            txbCurDate.Content = _dateToLoad.ToLongDateString();
         }
 
-        private void LoadCards()
+        public void LoadCards()
         {
+            stpCards.Children.Clear();
+
+            txbCurDate.Text = _dateToLoad.ToLongDateString();
+
             //date to find products
-            _currentUserNutrition = _currentUserNutritionRepository.GetAllUserProductsByDate(_userId, _dateToLoad);
+            _currentUserNutrition = MainWindow.UserNutritionRepository.GetAllUserProductsByDate(MainWindow.UserId, _dateToLoad);
             if (_currentUserNutrition.Count() > 0)
             {
                 foreach (var i in _currentUserNutrition)
                 {
-                    stpCards.Children.Add(new ProductCard(i.Product, i.NumberOfGrams));
+                    stpCards.Children.Add(new ProductCard(i.Product, i.NumberOfGrams,_dateToLoad));
                 }
             }
             else
             {
                 ErrorDialog messageToAddProd = new ErrorDialog("There are no added products in this day.");
+                messageToAddProd.Show();
             }
         }
         
         private void AddDialog(object sender, RoutedEventArgs e)
         {
-            var view = new SampleDialog { };
-
+            var view = new SampleDialog(_dateToLoad);
             DialogHost.Show(view, "RootDialog", ClosingEventHandler);
-        }
-
-        private void EditDialog(object sender, RoutedEventArgs e)
-        {
-            // pass data of selected
-            var view = new EditDialog ();
-          
-            DialogHost.Show(view, "RootDialog", ClosingEventHandler);
-        }
-
-        private void Delete(object sender, RoutedEventArgs e)
-        {
-            // delete fom DB and refresh
             
         }
 
         private void ClosingEventHandler(object sender, DialogClosingEventArgs eventArgs)
         {
-            Console.WriteLine("You can intercept the closing event, and cancel here.");
+            if (eventArgs.Parameter.Equals(true))
+            {
+                LoadCards();
+            }
         }
 
         private void PickDate(object sender, RoutedEventArgs e)
@@ -92,8 +80,8 @@ namespace MaterialDesign
 
         private void DateChanged(object sender, SelectionChangedEventArgs e)
         {
-            var date = dtCalendar.SelectedDate.Value;
-            Console.WriteLine(date);
+            _dateToLoad = dtCalendar.SelectedDate.Value;
+            LoadCards();
         }
 
     }

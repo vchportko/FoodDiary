@@ -159,19 +159,14 @@ namespace FoodDiary_Backend.Repositories
 
                 using (var record = command.ExecuteReader())
                 {
-                    int numOfInsertedRanges = 0;
-                    while (record.Read())
-                    {
-                        numOfInsertedRanges = record.GetInt32(0);
-                        break;
-                    }
+                    int numOfInsertedRanges = record.RecordsAffected;
 
                     return numOfInsertedRanges;
                 }
             }
         }
 
-        public bool UpdateProductInNutrition(int userId, DateTime date, string productName, int changedNumber)
+        public bool UpdateProductInNutrition(int userId, DateTime date, string subcategoryName, string productName, int changedNumber)
         {
             using (var command = _context.CreateCommand())
             {
@@ -181,6 +176,7 @@ namespace FoodDiary_Backend.Repositories
                 command.Parameters.Add(command.CreateParameter("@dat", date.Date));
                 command.Parameters.Add(command.CreateParameter("@prodName", productName));
                 command.Parameters.Add(command.CreateParameter("@number", changedNumber));
+                command.Parameters.Add(command.CreateParameter("@productSubcat", subcategoryName));
 
                 using (var record = command.ExecuteReader())
                 {
@@ -206,7 +202,7 @@ namespace FoodDiary_Backend.Repositories
             using (var command = _context.CreateCommand())
             {
                 command.CommandType = CommandType.StoredProcedure;
-                command.CommandText = "updateProductInNutrition";
+                command.CommandText = "dropProductInNutrition";
                 command.Parameters.Add(command.CreateParameter("@userId", userId));
                 command.Parameters.Add(command.CreateParameter("@dat", date.Date));
                 command.Parameters.Add(command.CreateParameter("@prodName", productName));

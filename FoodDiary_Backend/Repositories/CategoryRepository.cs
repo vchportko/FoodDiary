@@ -15,7 +15,7 @@ namespace FoodDiary_Backend.Repositories.Interfaces
             _context = context;
         }
 
-        public IList<Category> GetAllCategories(string contain)
+        public List<Category> GetAllCategories(string contain)
         {
             using (var command = _context.CreateCommand())
             {

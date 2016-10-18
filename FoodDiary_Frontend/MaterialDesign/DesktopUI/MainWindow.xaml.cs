@@ -14,6 +14,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using FoodDiary_Backend.DataAccess;
+using FoodDiary_Backend.Models;
+using FoodDiary_Backend.Repositories;
+using FoodDiary_Backend.Repositories.Interfaces;
 
 namespace MaterialDesign
 {
@@ -23,13 +26,25 @@ namespace MaterialDesign
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static DbContext _context;
-        public static int _userId;
+        public static int UserId;
+
+        public static CategoryRepository CategoryRepository { get; private set; }
+
+        public static SubcategoryRepository SubcategoryRepository { get; private set; }
+
+        public static ProductRepository ProductRepository { get; private set; }
+
+        public static UserNutritionRepository UserNutritionRepository { get; private set; }
 
         public MainWindow(DbContext context, int userId)
         {
-            _context = context;
-            _userId = userId;
+            UserId = userId;
+            //initializing repositories
+            CategoryRepository = new CategoryRepository(context);
+            SubcategoryRepository = new SubcategoryRepository(context);
+            ProductRepository = new ProductRepository(context);
+            UserNutritionRepository = new UserNutritionRepository(context);
+
             InitializeComponent();
         }
 

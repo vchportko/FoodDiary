@@ -93,9 +93,6 @@
     <Compile Include="DesktopUI\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DesktopUI\MenuItems\Calendar.xaml.cs">
-      <DependentUpon>Calendar.xaml</DependentUpon>
-    </Compile>
     <Compile Include="DesktopUI\Utils\MainViewModel.cs" />
     <Compile Include="DesktopUI\Utils\NotifyPropertyChangedExtension.cs" />
     <Compile Include="DesktopUI\Dialogs\SampleDialog.xaml.cs">
@@ -137,10 +134,6 @@
     <Page Include="DesktopUI\LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DesktopUI\MenuItems\Calendar.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DesktopUI\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

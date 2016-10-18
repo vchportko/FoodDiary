@@ -11,7 +11,7 @@ namespace FoodDiary_Backend.Repositories.Interfaces
 {
     public interface IProductRepository
     {
-        IList<Product> GetAllProducts(string subcategoryName, string contain);
+        List<Product> GetAllProducts(string subcategoryName, string contain);
 
         bool AddNewProduct(string newProductName, string subCategoryName, float caloriesIn100G, float fatIn100G, float proteinIn100G, float carbohydrateIn100G);
         

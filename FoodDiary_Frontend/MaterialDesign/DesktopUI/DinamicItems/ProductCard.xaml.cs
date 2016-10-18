@@ -23,13 +23,17 @@ namespace MaterialDesign.DesktopUI.DinamicItems
     public partial class ProductCard : UserControl
     {
         private Product _product;
+
         private int _numberOfGrams;
+
+        private DateTime _date;
         
-        public ProductCard(Product product, int number)
+        public ProductCard(Product product, int number, DateTime date)
         {
             InitializeComponent();
             _product = product;
             _numberOfGrams = number;
+            _date = date;
             OutputValuesOnCard();
         }
 
@@ -47,18 +51,18 @@ namespace MaterialDesign.DesktopUI.DinamicItems
 
         private void BtnDelete_OnClick(object sender, RoutedEventArgs e)
         {
-            
+            MainWindow.UserNutritionRepository.DropProductInNutrition(MainWindow.UserId, _date, _product.Name);
         }
 
         private void BtnEdit_OnClick(object sender, RoutedEventArgs e)
         {
-            var view = new EditDialog { };
+            var view = new EditDialog(_product,_numberOfGrams, _date);
             DialogHost.Show(view, "RootDialog", ClosingEventHandler);
         }
 
         private void ClosingEventHandler(object sender, MaterialDesignThemes.Wpf.DialogClosingEventArgs eventArgs)
         {
-            Console.WriteLine("You can intercept the closing event, and cancel here.");
+            
         }
     }
 }

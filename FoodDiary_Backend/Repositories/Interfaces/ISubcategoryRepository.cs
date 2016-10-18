@@ -5,7 +5,7 @@ namespace FoodDiary_Backend.Repositories.Interfaces
 {
     public interface ISubcategoryRepository
     {
-        IList<Subcategory> GatAllSubcategories(string categoryName, string contain);
+        List<Subcategory> GatAllSubcategories(string categoryName, string contain);
 
         bool AddNewSubcategory(string categoryName, string newSubcategoryName);
     }

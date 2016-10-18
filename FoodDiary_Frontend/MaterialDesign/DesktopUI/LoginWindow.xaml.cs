@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -30,18 +29,9 @@ namespace FoodDiary
     /// </summary>
     public partial class LoginWindow : Window
     {
-        private DbContext context;
-        private int userId;
-
         public LoginWindow()
         {
             InitializeComponent();
-        }
-
-        public LoginWindow(DbContext context, int userId)
-        {
-            this.context = context;
-            this.userId = userId;
         }
 
         private void btnSubmit_OnClick(object sender, RoutedEventArgs e)
@@ -61,6 +51,7 @@ namespace FoodDiary
                 if (userId > 0)
                 {
                     MainWindow userMainWindow = new MainWindow(context, userId);
+                    userMainWindow.Closed+=delegate { Show(); };
                     userMainWindow.Show();
                     Hide();
                 }
@@ -71,10 +62,6 @@ namespace FoodDiary
                 }
                
             }
-        }
-        private void ClosingEventHandler(object sender, MaterialDesignThemes.Wpf.DialogClosingEventArgs eventArgs)
-        {
-            Console.WriteLine("You can intercept the closing event, and cancel here.");
         }
     }
 }

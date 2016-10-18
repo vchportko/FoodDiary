@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:MaterialDesign"
         xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
-        mc:Ignorable="d" Height="300" Width="300">
+        mc:Ignorable="d" d:DesignHeight="300" Width="300">
     <Grid Margin="16">
-
         <Grid.RowDefinitions>
+            <RowDefinition />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
@@ -17,41 +17,26 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <TextBlock FontSize="22">Add food:</TextBlock>
-        <ComboBox x:Name="cbCategory" wpf:HintAssist.Hint="Category"                 
-                 Margin="0 6 0 0"
-                 FontSize="16" Grid.Row="1">
-            <ComboBoxItem>Category 1</ComboBoxItem>
-            <ComboBoxItem>Category 2</ComboBoxItem>
-        </ComboBox>
-        <ComboBox x:Name="cbSubcategory"
-            wpf:HintAssist.Hint="Subcategory"
-                 Margin="0 8 0 0"
-                 FontSize="16" Grid.Row="2"
-                 >
-            <ComboBoxItem>Subcategory 1</ComboBoxItem>
-            <ComboBoxItem>Subcategory 2</ComboBoxItem>
-        </ComboBox>
-        <TextBox x:Name="tbCalories" wpf:HintAssist.Hint="Calories quantity" Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
-                 Margin="0 8 0 0"
-                 FontSize="16" Grid.Row="3"
-                 />
-        <StackPanel Orientation="Horizontal" Grid.Row="4" HorizontalAlignment="Right"
-                    Margin="0 16 0 0">
-            <Button IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}"
-                    Command="{x:Static wpf:DialogHost.CloseDialogCommand}"
-                    Click="AddFood">
+        <ComboBox x:Name="cbCategory" SelectionChanged="CbCategory_OnSelectionChanged" wpf:HintAssist.Hint="Category" Margin="0 6 0 0" FontSize="16" Grid.Row="1"/>
+        <ComboBox x:Name="cbSubcategory" SelectionChanged="CbSubcategory_OnSelectionChanged" wpf:HintAssist.Hint="Subcategory" Margin="0 8 0 0" FontSize="16" Grid.Row="2"/>
+        <ComboBox x:Name="cbProductName" SelectionChanged="CbProductName_OnSelectionChanged" wpf:HintAssist.Hint="Product name" Margin="0 8 0 0" FontSize="16" Grid.Row="3"/>
+        <TextBox x:Name="tbCalories" PreviewTextInput="TbCalories_OnPreviewTextInput" TextChanged="TbCalories_OnTextChanged" wpf:HintAssist.Hint="Calories quantity in grams" Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                 FontSize="16" Grid.Row="4"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="5" HorizontalAlignment="Right" Margin="0 16 0 0">
+        <Button IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}"
+                    Command="{x:Static wpf:DialogHost.CloseDialogCommand}" Click="AddProductToUserNutrition">
                 <Button.CommandParameter>
                     <system:Boolean>True</system:Boolean>
                 </Button.CommandParameter>
                 ADD
-            </Button>
-            <Button IsCancel="True" Margin="8 0 0 0" Style="{DynamicResource MaterialDesignFlatButton}"
+        </Button>
+        <Button IsCancel="True" Margin="8 0 0 0" Style="{DynamicResource MaterialDesignFlatButton}"
                     Command="{x:Static wpf:DialogHost.CloseDialogCommand}">
                 <Button.CommandParameter>
                     <system:Boolean>False</system:Boolean>
                 </Button.CommandParameter>
                 CANCEL
-            </Button>
+        </Button>
         </StackPanel>
     </Grid>
 </UserControl>

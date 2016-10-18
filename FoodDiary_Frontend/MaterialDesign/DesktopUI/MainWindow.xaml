@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaterialDesign"
         mc:Ignorable="d"
-        Title="FoodDiary" Icon="../Icons/main1.ico" Height="550" Width="520" WindowStartupLocation="CenterScreen" ResizeMode="CanResize"
+        Title="FoodDiary" Icon="../Icons/main1.ico" Height="650" Width="520" WindowStartupLocation="CenterOwner" ResizeMode="NoResize"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -43,8 +43,8 @@
                         <ListBox.ItemTemplate>
                             <DataTemplate DataType="local:DemoItem">
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Width="20" Height="20" Source="{Binding Source}"></Image>
-                                    <TextBlock Text="{Binding Name}" Margin="8 0 0 0" FontSize="20" />
+                                    <Image Width="20" Height="20" Margin="8,0,0,0" Source="{Binding Source}"></Image>
+                                    <TextBlock Text="{Binding Name}" Margin="18 0 0 0" FontSize="20" />
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>

@@ -21,7 +21,7 @@ namespace FoodDiary_Backend.Repositories
         }
 
 
-        public IList<Subcategory> GatAllSubcategories(string categoryName, string contain)
+        public List<Subcategory> GatAllSubcategories(string categoryName, string contain)
         {
             using (var command = _context.CreateCommand())
             {

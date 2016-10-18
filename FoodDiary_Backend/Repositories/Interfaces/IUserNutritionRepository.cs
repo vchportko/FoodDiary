@@ -18,7 +18,7 @@ namespace FoodDiary_Backend.Repositories.Interfaces
 
         int AddNewProductToNutrition(int userId, DateTime date, string productName, int number);
 
-        bool UpdateProductInNutrition(int userId, DateTime date, string productName, int changedNumber);
+        bool UpdateProductInNutrition(int userId, DateTime date, string subcategoryName, string productName, int changedNumber);
 
         bool DropProductInNutrition(int userId, DateTime date, string productName);
 

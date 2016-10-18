@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MaterialDesign"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d" 
-        d:DesignHeight="300" d:DesignWidth="300" >
+        d:DesignHeight="300" d:DesignWidth="300" HorizontalAlignment="Right">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -21,24 +21,24 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
-            <RowDefinition Height="6*" />
-            <RowDefinition Height="2*" />
+            <RowDefinition Height="11*" />
+            <RowDefinition Height="3*" />
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-            <Label x:Name="txbCurDate" Margin="0,5" FontSize="16"></Label>
+            <TextBox x:Name="txbCurDate" Margin="0,5" FontSize="15" TextWrapping="WrapWithOverflow"></TextBox>
         </StackPanel>
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Style="{DynamicResource ScrollViewerControllTemplate}">
-        <StackPanel x:Name="stpCards"  Margin="8" CanVerticallyScroll="True" Orientation="Vertical" Panel.ZIndex="0">
+        <StackPanel x:Name="stpCards"  MinWidth="450" MaxWidth="450" HorizontalAlignment="Right" Margin="5" CanVerticallyScroll="True" Orientation="Vertical" Panel.ZIndex="0">
         </StackPanel>
         </ScrollViewer>
         <DatePicker x:Name="dtCalendar" SelectedDateChanged="DateChanged" Width="100" Visibility="Hidden" HorizontalAlignment="Left" Margin="0 16 0 0" materialDesign:HintAssist.Hint="Pick Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="2">
-            <Button x:Name="bAdd" Margin="10,0,10,0" Style="{StaticResource MaterialDesignFloatingActionButton}" Panel.ZIndex="100" Click="AddDialog">
+        <DockPanel HorizontalAlignment="Right" Grid.Row="2">
+            <Button x:Name="bAdd" Margin="10,0,10,0" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFloatingActionButton}" Panel.ZIndex="100" Click="AddDialog">
                 <materialDesign:PackIcon Kind="Plus" Height="24" Width="24" />
             </Button>
-            <Button x:Name="bPick"  Margin="10,0,10,0" Style="{StaticResource MaterialDesignFloatingActionButton}" Panel.ZIndex="100" Click="PickDate">
+            <Button x:Name="bPick"  HorizontalAlignment="Right" Margin="10,0,10,0" Style="{StaticResource MaterialDesignFloatingActionButton}" Panel.ZIndex="100" Click="PickDate">
                 <materialDesign:PackIcon Kind="CalendarToday" Height="24" Width="24" />
             </Button>
-        </StackPanel>
+        </DockPanel>
     </Grid>
 </UserControl>
