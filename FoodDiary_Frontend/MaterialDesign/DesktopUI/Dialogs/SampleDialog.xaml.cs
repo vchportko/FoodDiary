@@ -160,10 +160,7 @@ namespace MaterialDesign
             {
                 _currentNumber = int.Parse(tbCalories.Text);
             }
-            else
-            {
-                _currentNumber = int.Parse(tbCalories.Text);
-            }
+            
         }
 
         private void TbCalories_OnPreviewTextInput(object sender, TextCompositionEventArgs e)
