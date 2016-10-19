@@ -170,7 +170,10 @@ namespace MaterialDesign
         private void TbCalories_OnTextChanged(object sender, TextChangedEventArgs e)
         {
             _ifProductWasChanged = true;
-            _currentNumber = int.Parse(tbCalories.Text);
+            if (tbCalories.Text != "")
+            {
+                _currentNumber = int.Parse(tbCalories.Text);
+            }
         }
 
         private void TbCalories_OnPreviewTextInput(object sender, TextCompositionEventArgs e)

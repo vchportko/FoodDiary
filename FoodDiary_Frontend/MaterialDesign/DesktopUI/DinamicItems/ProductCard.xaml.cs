@@ -27,14 +27,17 @@ namespace MaterialDesign.DesktopUI.DinamicItems
         private int _numberOfGrams;
 
         private DateTime _date;
-        
-        public ProductCard(Product product, int number, DateTime date)
+
+        private Today.ReloadCards _reload;
+
+        public ProductCard(Product product, int number, DateTime date, Today.ReloadCards reload)
         {
             InitializeComponent();
             _product = product;
             _numberOfGrams = number;
             _date = date;
             OutputValuesOnCard();
+            _reload = reload;
         }
 
         private void OutputValuesOnCard()
@@ -53,6 +56,7 @@ namespace MaterialDesign.DesktopUI.DinamicItems
         private void BtnDelete_OnClick(object sender, RoutedEventArgs e)
         {
             MainWindow.UserNutritionRepository.DropProductInNutrition(MainWindow.UserId, _date, _product.Name);
+            _reload();
         }
 
         private void BtnEdit_OnClick(object sender, RoutedEventArgs e)
@@ -63,7 +67,10 @@ namespace MaterialDesign.DesktopUI.DinamicItems
 
         private void ClosingEventHandler(object sender, MaterialDesignThemes.Wpf.DialogClosingEventArgs eventArgs)
         {
-            
+            if (eventArgs.Parameter.Equals(true))
+            {
+                _reload();
+            }
         }
     }
 }

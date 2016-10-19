@@ -28,11 +28,16 @@ namespace MaterialDesign
         private IList<UserNutrition> _currentUserNutrition;
         private static DateTime _dateToLoad;
 
+        public delegate void ReloadCards();
+
+        private ReloadCards _reload;
+
         public Today()
         {
             InitializeComponent();
 
             _dateToLoad =DateTime.Now;
+            _reload += () => LoadCards();
             LoadCards();
         }
 
@@ -48,8 +53,7 @@ namespace MaterialDesign
             {
                 foreach (var i in _currentUserNutrition)
                 {
-                    ProductCard cardToAdd = new ProductCard(i.Product, i.NumberOfGrams, _dateToLoad);
-                    stpCards.Children.Add(new ProductCard(i.Product, i.NumberOfGrams,_dateToLoad));
+                    stpCards.Children.Add(new ProductCard(i.Product, i.NumberOfGrams,_dateToLoad,_reload));
                 }
             }
             else
