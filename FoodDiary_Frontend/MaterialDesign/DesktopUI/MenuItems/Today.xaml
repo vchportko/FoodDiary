@@ -28,7 +28,7 @@
             <TextBox x:Name="txbCurDate" Margin="0,5" FontSize="15" TextWrapping="WrapWithOverflow"></TextBox>
         </StackPanel>
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Style="{DynamicResource ScrollViewerControllTemplate}">
-        <StackPanel x:Name="stpCards"  MinWidth="450" MaxWidth="450" HorizontalAlignment="Right" Margin="5" CanVerticallyScroll="True" Orientation="Vertical" Panel.ZIndex="0">
+        <StackPanel x:Name="stpCards" MinWidth="450" MaxWidth="450" HorizontalAlignment="Right" Margin="5" CanVerticallyScroll="True" Orientation="Vertical" Panel.ZIndex="0">
         </StackPanel>
         </ScrollViewer>
         <DatePicker x:Name="dtCalendar" SelectedDateChanged="DateChanged" Width="100" Visibility="Hidden" HorizontalAlignment="Left" Margin="0 16 0 0" materialDesign:HintAssist.Hint="Pick Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />

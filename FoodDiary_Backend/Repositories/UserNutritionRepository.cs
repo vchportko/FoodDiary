@@ -73,7 +73,7 @@ namespace FoodDiary_Backend.Repositories
                 {
                     while (record.Read())
                     {
-                        listOfCalories.Add(record.GetDateTime(0), record.GetFloat(1));
+                        listOfCalories.Add(record.GetDateTime(0), float.Parse(record.GetDouble(1).ToString()));
                     }
                     return listOfCalories;
                 }
@@ -95,7 +95,7 @@ namespace FoodDiary_Backend.Repositories
                 {
                     while (record.Read())
                     {
-                        listOfCalories.Add(record.GetDateTime(0), record.GetFloat(1));
+                        listOfCalories.Add(record.GetDateTime(0), float.Parse(record.GetDouble(1).ToString()));
                     }
                     return listOfCalories;
                 }
@@ -117,7 +117,7 @@ namespace FoodDiary_Backend.Repositories
                 {
                     while (record.Read())
                     {
-                        listOfCalories.Add(record.GetDateTime(0), record.GetFloat(1));
+                        listOfCalories.Add(record.GetDateTime(0), float.Parse(record.GetDouble(1).ToString()));
                     }
                     return listOfCalories;
                 }
@@ -139,7 +139,7 @@ namespace FoodDiary_Backend.Repositories
                 {
                     while (record.Read())
                     {
-                        listOfCalories.Add(record.GetDateTime(0), record.GetFloat(1));
+                        listOfCalories.Add(record.GetDateTime(0), float.Parse(record.GetDouble(1).ToString()));
                     }
                     return listOfCalories;
                 }

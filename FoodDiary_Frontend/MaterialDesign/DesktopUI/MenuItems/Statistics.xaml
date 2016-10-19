@@ -10,13 +10,31 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <chart:ClusteredColumnChart ChartLegendVisibility="Collapsed" x:Name="chart" Grid.Row="0" ChartSubTitle="Calories per day" ChartTitle="Consumed calories" SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}">
-            <chart:ClusteredColumnChart.Series >
+        <chart:StackedColumnChart ChartLegendVisibility="Collapsed" ChartSubTitle="" x:Name="chart" ChartTitle="Week Statistic" SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}">
+                <chart:StackedColumnChart.Series >
                 <chart:ChartSeries
-                DisplayMember="Category"
+                Caption="Calories"
+                DisplayMember="Date"
                 ValueMember="Number"
-                ItemsSource="{Binding Path=Errors}" />
-            </chart:ClusteredColumnChart.Series>
-        </chart:ClusteredColumnChart>
+                ItemsSource="{Binding Path=Calories}" />
+                <chart:ChartSeries
+                BorderBrush="Aqua"
+                Caption="Fat"
+                DisplayMember="Date"
+                ValueMember="Number"
+                ItemsSource="{Binding Path=Fat}" Background="#FFE60F0F" />
+                <chart:ChartSeries
+                Caption="Protein"
+                DisplayMember="Date"
+                ValueMember="Number"
+                ItemsSource="{Binding Path=Protein}" />
+                <chart:ChartSeries
+                Caption="Carbohydrate"
+                DisplayMember="Date"
+                ValueMember="Number"
+                ItemsSource="{Binding Path=Carbohydrate}" />
+                </chart:StackedColumnChart.Series>
+        </chart:StackedColumnChart>
+
     </Grid>
 </UserControl>

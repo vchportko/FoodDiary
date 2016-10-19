@@ -22,11 +22,78 @@ namespace MaterialDesign
     /// </summary>
     public partial class Statistics : UserControl
     {
+        public ObservableCollection<GraphicPoint> Calories { get; private set; }
+
+        public ObservableCollection<GraphicPoint> Fat { get; private set; }
+
+        public ObservableCollection<GraphicPoint> Protein { get; private set; }
+
+        public ObservableCollection<GraphicPoint> Carbohydrate { get; private set; }
+
         public Statistics()
         {
             InitializeComponent();
-            DataContext = new MainViewModel();
+            DataContext = this;
+            Calories=new ObservableCollection<GraphicPoint>();
+            Fat = new ObservableCollection<GraphicPoint>();
+            Protein = new ObservableCollection<GraphicPoint>();
+            Carbohydrate = new ObservableCollection<GraphicPoint>();
+            LoadWeekCalories();
+            LoadWeekFat();
+            LoadWeekProtein();
+            LoadWeekCarbohydrate();
         }
-        
+
+        private void LoadWeekCalories()
+        {
+            var calories = MainWindow.UserNutritionRepository.GetSumsOfCalories(MainWindow.UserId, 7);
+            foreach (var i in calories)
+            {
+                Calories.Add(new GraphicPoint() {Date=i.Key.ToShortDateString(),Number=i.Value});
+            }
+        }
+
+        private void LoadWeekFat()
+        {
+            var fat = MainWindow.UserNutritionRepository.GetSumsOfFat(MainWindow.UserId, 7);
+            foreach (var i in fat)
+            {
+                Fat.Add(new GraphicPoint() { Date = i.Key.ToShortDateString(), Number = i.Value });
+            }
+        }
+
+        private void LoadWeekProtein()
+        {
+            var protein = MainWindow.UserNutritionRepository.GetSumsOfProtein(MainWindow.UserId, 7);
+            foreach (var i in protein)
+            {
+                Protein.Add(new GraphicPoint() { Date = i.Key.ToShortDateString(), Number = i.Value });
+            }
+        }
+
+        private void LoadWeekCarbohydrate()
+        {
+            var carbohydrate = MainWindow.UserNutritionRepository.GetSumsOfCarbohydrates(MainWindow.UserId, 7);
+            foreach (var i in carbohydrate)
+            {
+                Carbohydrate.Add(new GraphicPoint() { Date = i.Key.ToShortDateString(), Number = i.Value });
+            }
+        }
+
+        private object selectedItem = null;
+        public object SelectedItem
+        {
+            get
+            {
+                return selectedItem;
+            }
+            set
+            {
+                // selected item has changed
+                selectedItem = value;
+            }
+        }
+
+
     }
 }

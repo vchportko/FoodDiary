@@ -25,7 +25,7 @@
                             materialDesign:RippleAssist.IsCentered="True"  Click="CreateCategory">
                             <Button.Template>
                                 <ControlTemplate>
-                                    <Border CornerRadius="30" Background="#FF9C27B0">
+                                    <Border CornerRadius="30" Background="#FF673AB7">
                                         <TextBlock Text="+" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"></TextBlock>
                                     </Border>
                                 </ControlTemplate>
@@ -49,7 +49,7 @@
                             materialDesign:RippleAssist.IsCentered="True"  Click="CreateSubcategory">
                             <Button.Template>
                                 <ControlTemplate>
-                                    <Border CornerRadius="30" Background="#FF9C27B0">
+                                    <Border CornerRadius="30" Background="#FF673AB7">
                                         <TextBlock Text="+" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"></TextBlock>
                                     </Border>
                                 </ControlTemplate>
@@ -73,7 +73,7 @@
                             materialDesign:RippleAssist.IsCentered="True"  Click="CreateFood">
                             <Button.Template>
                                 <ControlTemplate>
-                                    <Border CornerRadius="30" Background="#FF9C27B0">
+                                    <Border CornerRadius="30" Background="#FF673AB7">
                                         <TextBlock Text="+" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"></TextBlock>
                                     </Border>
                                 </ControlTemplate>

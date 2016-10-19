@@ -48,6 +48,7 @@ namespace MaterialDesign
             {
                 foreach (var i in _currentUserNutrition)
                 {
+                    ProductCard cardToAdd = new ProductCard(i.Product, i.NumberOfGrams, _dateToLoad);
                     stpCards.Children.Add(new ProductCard(i.Product, i.NumberOfGrams,_dateToLoad));
                 }
             }

@@ -6,37 +6,32 @@
         xmlns:local="clr-namespace:MaterialDesign"
         xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
-        mc:Ignorable="d" Height="300" Width="300">
+        mc:Ignorable="d" Height="350" Width="300">
     <Grid Margin="16">
-
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         <TextBlock FontSize="22">Create food:</TextBlock>
-        <ComboBox x:Name="cbCategory" wpf:HintAssist.Hint="Category"                 
-                 Margin="0 6 0 0"
-                 FontSize="16" Grid.Row="1">
-            <ComboBoxItem>Category 1</ComboBoxItem>
-            <ComboBoxItem>Category 2</ComboBoxItem>
+        <ComboBox x:Name="cbCategory" SelectionChanged="CbCategory_OnSelectionChanged" wpf:HintAssist.Hint="Category" Margin="0 6 0 0" FontSize="16" Grid.Row="1">
         </ComboBox>
-        <ComboBox x:Name="cbSubcategory"
-            wpf:HintAssist.Hint="Subcategory"
-                 Margin="0 8 0 0"
-                 FontSize="16" Grid.Row="2"
-                 >
-            <ComboBoxItem>Subcategory 1</ComboBoxItem>
-            <ComboBoxItem>Subcategory 2</ComboBoxItem>
+        <ComboBox x:Name="cbSubcategory" wpf:HintAssist.Hint="Subcategory" Margin="0 8 0 0" FontSize="16" Grid.Row="2">
         </ComboBox>
-        <TextBox x:Name="tbFood" wpf:HintAssist.Hint="Food name" Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
-                 Margin="0 8 0 0"
-                 FontSize="16" Grid.Row="3"
-                 />
-        <StackPanel Orientation="Horizontal" Grid.Row="4" HorizontalAlignment="Right"
-                    Margin="0 16 0 0">
+        <TextBox x:Name="tbFood" wpf:HintAssist.Hint="Food name" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" FontSize="16" Grid.Row="3"/>
+        <StackPanel Grid.Row="4" Orientation="Horizontal">
+            <TextBox x:Name="tbCalories" PreviewTextInput="TextBox_OnPreviewTextInput" wpf:HintAssist.Hint="Calories" Width="100" Margin="0,0,20,0" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" FontSize="16"/>
+            <TextBox x:Name="tbFat" PreviewTextInput="TextBox_OnPreviewTextInput" wpf:HintAssist.Hint="Fats" Width="100" Margin="20,0" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" FontSize="16"/>
+        </StackPanel>
+        <StackPanel Grid.Row="5" Orientation="Horizontal">
+            <TextBox x:Name="tbProteins" PreviewTextInput="TextBox_OnPreviewTextInput" wpf:HintAssist.Hint="Proteins" Width="100" Margin="0,0,20,0" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" FontSize="16"/>
+            <TextBox x:Name="tbCarbohydrates" PreviewTextInput="TextBox_OnPreviewTextInput" wpf:HintAssist.Hint="Carbohydrate" Width="100" Margin="20,0" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" FontSize="16"/>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Bottom" Orientation="Horizontal" Grid.Row="6" HorizontalAlignment="Right">
             <Button IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}"
                     Command="{x:Static wpf:DialogHost.CloseDialogCommand}"
                     Click="CreateFoodDB">
