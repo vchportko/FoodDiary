@@ -4,6 +4,7 @@ IF DB_ID('FoodDiary') IS NULL
 GO
 
 USE [FoodDiary]
+GO
 
 --checking if table 'Users' exists
 IF OBJECT_ID('Users') IS NOT NULL
@@ -53,7 +54,7 @@ CREATE TABLE Products
 	subcategory_id INT NOT NULL REFERENCES ProductSubcategories(id),	
 	fat_in100g FLOAT CHECK (fat_in100g >= 0),
 	protein_in100g FLOAT CHECK (protein_in100g >= 0),
-	arbohydrates_in100g FLOAT CHECK (arbohydrates_in100g >= 0)	
+	carbohydrates_in100g FLOAT CHECK (arbohydrates_in100g >= 0)	
 )
 GO
 
@@ -80,14 +81,14 @@ AS
 SELECT us.id AS UserId, usn.date_of_nutrition AS Dat,prc.name AS Category, prsub.name AS SubCategory, pr.name AS Product, usn.number_of_grams AS Number,
 		usn.number_of_grams*pr.calories_in100g/100 AS Calories, usn.number_of_grams*pr.fat_in100g/100 AS Fat,
 		usn.number_of_grams*pr.protein_in100g/100 AS Protein, usn.number_of_grams*pr.arbohydrates_in100g/100 AS Carbo
-	FROM [dbo].[Users] us
-	INNER JOIN [dbo].[UserNutritions] usn
+	FROM Users us
+	INNER JOIN UserNutritions usn
 	ON us.id = usn.users_id
-	INNER JOIN [dbo].[Products] pr
+	INNER JOIN Products pr
 	ON pr.id=usn.product_id
-	INNER JOIN [dbo].[ProductSubcategories] prsub
+	INNER JOIN ProductSubcategories prsub
 	ON prsub.id = pr.subcategory_id
-	INNER JOIN [dbo].[ProductCategories] prc
+	INNER JOIN ProductCategories prc
 	ON prsub.productCategoty_id = prc.id
 GO
 

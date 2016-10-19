@@ -12,7 +12,6 @@ namespace FoodDiary_Backend.DataAccess
 {
     public class DbConnectionFactory:IConnectionFactory
     {
-        private readonly DbProviderFactory _provider;
         private readonly string _connectionString;
         private readonly string _name;
 

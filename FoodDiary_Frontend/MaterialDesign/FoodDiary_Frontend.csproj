@@ -50,22 +50,6 @@
       <HintPath>..\packages\MaterialDesignThemes.2.1.0.657\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SciChart.Charting, Version=4.2.0.8960, Culture=neutral, PublicKeyToken=b55dd9efe817e823, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SciChart.4.2.0.8960\lib\net45\SciChart.Charting.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="SciChart.Core, Version=4.2.0.8960, Culture=neutral, PublicKeyToken=b55dd9efe817e823, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SciChart.4.2.0.8960\lib\net45\SciChart.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="SciChart.Data, Version=4.2.0.8960, Culture=neutral, PublicKeyToken=b55dd9efe817e823, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SciChart.4.2.0.8960\lib\net45\SciChart.Data.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="SciChart.Drawing, Version=4.2.0.8960, Culture=neutral, PublicKeyToken=b55dd9efe817e823, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SciChart.4.2.0.8960\lib\net45\SciChart.Drawing.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
