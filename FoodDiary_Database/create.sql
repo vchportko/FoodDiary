@@ -54,7 +54,7 @@ CREATE TABLE Products
 	subcategory_id INT NOT NULL REFERENCES ProductSubcategories(id),	
 	fat_in100g FLOAT CHECK (fat_in100g >= 0),
 	protein_in100g FLOAT CHECK (protein_in100g >= 0),
-	carbohydrates_in100g FLOAT CHECK (arbohydrates_in100g >= 0)	
+	arbohydrates_in100g FLOAT CHECK (arbohydrates_in100g >= 0)	
 )
 GO
 
