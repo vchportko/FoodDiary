@@ -59,9 +59,9 @@
     <Folder Include="Properties" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="DB_Create.sql" />
-    <Build Include="DB_Drop.sql" />
-    <Build Include="DB_Insert.sql" />
-    <Build Include="DB_StoredProcedures.sql" />
+    <None Include="create.sql" />
+    <None Include="drop.sql" />
+    <None Include="insert.sql" />
+    <None Include="storedProcedures.sql" />
   </ItemGroup>
 </Project>
